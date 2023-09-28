@@ -2,9 +2,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+
 import '../../../utils/constants/colors.dart';
 import '../../../utils/widgets/dummy_widgets.dart';
 import '../../modules/dashboard/view/dashboard.dart';
+import '../../modules/maintenance_register/views/maintance_screen.dart';
 
 
 class BottomBarScreen extends StatefulWidget {
@@ -22,7 +24,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
     return [
       const DashboardScreen(),
       const SearchScreen(),
-      const Message(),
+       MaintanceScreen(),
       const Message(),
       const Settings(),
 
@@ -73,7 +75,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
         controller: bottomnavController,
         screens: _NavScreens(),
         items: _navBarsItems(),
-
+        stateManagement: false,
         backgroundColor: brownBottomBar,
         handleAndroidBackButtonPress: true,
         resizeToAvoidBottomInset: true,

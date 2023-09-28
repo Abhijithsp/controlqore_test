@@ -2,10 +2,20 @@ import 'package:controlqore_test/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
+TextStyle smallTextBlack = GoogleFonts.ptSans(
+    fontSize: 15,
+    fontWeight: FontWeight.normal,
+    color: Colors.black
+);
+TextStyle mediumTextBlack = GoogleFonts.ptSansCaption(
+  fontSize: 15,
+  fontWeight: FontWeight.bold,
+);
 TextStyle smallText = GoogleFonts.ptSans(
   fontSize: 15,
   fontWeight: FontWeight.normal,
-  color: colorWhite
+    color: Colors.black
 );
 
 TextStyle authText = GoogleFonts.ptSansCaption(
@@ -20,7 +30,7 @@ TextStyle normalText = GoogleFonts.ptSansCaption(
 );
 
 TextStyle normalDataText = GoogleFonts.ptSansCaption(
-    fontSize: 15,
+    fontSize: 25,
     fontWeight: FontWeight.bold,
     color: Colors.white
 );
