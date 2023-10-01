@@ -2,10 +2,12 @@ import 'package:controlqore_test/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../../../utils/constants/text_controllers.dart';
 import '../../../utils/constants/text_styles.dart';
 import '../../../utils/widgets/nav_bar.dart';
+import '../../../utils/widgets/success_widget.dart';
 import '../../../utils/widgets/textfield_rounded.dart';
 
 class MaintanceScreen extends StatefulWidget {
@@ -48,11 +50,13 @@ class _MaintanceScreenState extends State<MaintanceScreen> {
                     onTap: () {
                       _scaffoldKey.currentState!.openDrawer();
                     },
-                    child: SvgPicture.asset(
-                      "assets/svg/nav.svg",
-                      fit: BoxFit.cover,
-                      width: 60.w,
-                      height: 60.h,
+                    child: Ink(
+                      child: SvgPicture.asset(
+                        "assets/svg/nav.svg",
+                        fit: BoxFit.cover,
+                        width: 60.w,
+                        height: 60.h,
+                      ),
                     ),
                   ),
                 ),
@@ -376,7 +380,7 @@ class _MaintanceScreenState extends State<MaintanceScreen> {
                       height: 70.h,
                       child: ElevatedButton(
                         onPressed: (){
-
+                          Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: const SuccessScreen()));
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: ButtonColor,

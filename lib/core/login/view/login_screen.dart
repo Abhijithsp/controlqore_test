@@ -1,8 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
@@ -11,10 +9,9 @@ import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/custom_data.dart';
 import '../../../utils/constants/text_controllers.dart';
 import '../../../utils/constants/text_styles.dart';
-import '../../../utils/router/router_variables.dart';
+import '../../../utils/widgets/bottom_bar.dart';
 import '../../../utils/widgets/custom_textfield.dart';
 import '../../register_screen/view/register_screen.dart';
-import '../cubit/login_cubit.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -146,15 +143,21 @@ class _LoginScreenState extends State<LoginScreen> {
                           padding: const EdgeInsets.only(right: 45.0).r,
                           child: Text("Forgot Password ?",style: largeText,),
                         ),
-                        ElevatedButton(
-                          onPressed: (){},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: colorsYellow,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+                        SizedBox(
+                          width: 120.w,
+                          height: 60.h,
+                          child: ElevatedButton(
+                            onPressed: (){
+                              Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: BottomBarScreen()));
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: colorsYellow,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
                             ),
+                            child: const Icon(Icons.arrow_forward_rounded,color: colorWhite,),
                           ),
-                          child: const Icon(Icons.arrow_forward_rounded,color: colorWhite,),
                         ),
                       ],
                     )

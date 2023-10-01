@@ -14,20 +14,19 @@ dependencies:
     sdk: flutter
 
   cupertino_icons:
-  flutter_screenutil: 
-  cached_network_image:
+  flutter_screenutil:
   flutter_bloc:
   google_fonts:
   get_storage:
   flutter_easyloading:
-  dio:
   font_awesome_flutter:
   persistent_bottom_nav_bar:
-  cool_alert:
   animations:
   onboarding:
   page_transition:
   flutter_svg:
+  carousel_slider:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

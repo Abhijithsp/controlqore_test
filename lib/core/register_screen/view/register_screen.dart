@@ -1,8 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
@@ -11,11 +9,9 @@ import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/custom_data.dart';
 import '../../../utils/constants/text_controllers.dart';
 import '../../../utils/constants/text_styles.dart';
-import '../../../utils/router/router_variables.dart';
 import '../../../utils/widgets/custom_textfield.dart';
 import '../../login/view/login_screen.dart';
 import '../../onboard_screen/view/onboard_screen.dart';
-import '../cubit/register_cubit.dart';
 
 class RegisterScreen extends StatefulWidget {
   RegisterScreen({Key? key}) : super(key: key);
@@ -37,7 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               image: AssetImage("assets/images/bg.png"), fit: BoxFit.cover),
         ),
         child:  BackdropFilter(
-          filter:  ImageFilter.blur(sigmaX: 2.0, sigmaY:2.0),
+          filter:  ImageFilter.blur(sigmaX: 5.0, sigmaY:5.0),
           child: SingleChildScrollView(
             child: Column(
 
@@ -93,8 +89,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Padding(
                   padding:
                   const EdgeInsets.only(top:40,right: 150).r,
-                  child: Text(
-                    "Hello Beautiful",style: extraLargeText,),
+                  child: Text.rich(
+                     TextSpan(
+                       children: [
+                         TextSpan(text: 'Hello',style:extraLargeText),
+                         TextSpan(text: ' Beautiful',style:TextStyle(fontWeight: FontWeight.bold,fontSize: 35,color: colorWhite)),
+
+                       ],
+                     )),
                 ),
                 Padding(
                   padding:
@@ -104,7 +106,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 Padding(
                   padding:
-                  const EdgeInsets.only(left:15,right:15,top:80 ).r,
+                  const EdgeInsets.only(left:15,right:15,top:30 ).r,
                   child: customTextfield(
                       txt: "Email Address", ic: Icons.mail, cntr: textControllers().emailField),
                 ),
@@ -114,9 +116,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   child: customTextfield(
                       txt: "Password", ic: Icons.mail, cntr: textControllers().passwordField),
                 ),
-                const SizedBox(height: 20,),
+                Padding(
+                  padding:
+                  const EdgeInsets.only(left:15,right:15,top:30 ).r,
+                  child: customTextfield(
+                      txt: "Password Again", ic: Icons.mail, cntr: textControllers().passwordField),
+                ),
+                const SizedBox(height: 10,),
                 SizedBox(
-                  height: 70.w,
+                  height: 60.w,
                   width: 380.h,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
@@ -142,18 +150,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         padding: const EdgeInsets.only(right: 45.0).r,
                         child: Text("Forgot Password ?",style: largeText,),
                       ),
-                      ElevatedButton(
-                        onPressed: (){
-                          Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: OnboardScreen()));
+                      SizedBox(
+                        width: 120.w,
+                        height: 60.h,
+                        child: ElevatedButton(
+                          onPressed: (){
+                            Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: OnboardScreen()));
 
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: colorRed,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: colorRed,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
                           ),
+                          child: const Icon(Icons.arrow_forward_rounded,color: colorWhite,),
                         ),
-                        child: const Icon(Icons.arrow_forward_rounded,color: colorWhite,),
                       ),
                     ],
                   )

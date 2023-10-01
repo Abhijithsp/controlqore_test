@@ -1,19 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:page_transition/page_transition.dart';
 
-import '../../../modules/dashboard/view/dashboard.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/text_styles.dart';
-import '../../../utils/router/router_variables.dart';
 import '../../../utils/widgets/bottom_bar.dart';
-import '../../../utils/widgets/custom_textfield.dart';
-import '../../login/view/login_screen.dart';
 
 
 class OnboardScreen extends StatefulWidget {
@@ -52,34 +43,38 @@ class _OnboardScreenState extends State<OnboardScreen> {
           children: [
             Padding(
               padding:
-              const EdgeInsets.only(top:100,right: 150).r,
+              const EdgeInsets.only(left: 20,top:50,right: 50).r,
               child: Text(
-                "Hello Beautiful",style: extraLargeText,),
+                "Let's Make\nConnection with Pros",style: extraLargeText,),
             ),
             Padding(
               padding:
-              const EdgeInsets.only(right: 150,left: 15,bottom: 50).r,
+              const EdgeInsets.only(right: 60,left: 15,bottom: 50).r,
               child: Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",style: smallText,),
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna",style: smallTextOnboard,),
             ),
           ],
         ),
           Align(
             alignment: AlignmentDirectional.bottomEnd,
             child: Padding(
-              padding: const EdgeInsets.only(right: 20.0).r,
-              child: ElevatedButton(
-                onPressed: (){
-                  Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: BottomBarScreen()));
+              padding: const EdgeInsets.only(right: 40.0).r,
+              child: SizedBox(
+                width: 120.w,
+                height: 60.h,
+                child: ElevatedButton(
+                  onPressed: (){
+                    Navigator.push(context, PageTransition(type: PageTransitionType.fade, child: BottomBarScreen()));
 
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: colorRed,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: colorRed,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                   ),
+                  child: const Icon(Icons.arrow_forward_rounded,color: colorWhite,),
                 ),
-                child: const Icon(Icons.arrow_forward_rounded,color: colorWhite,),
               ),
             )
             ,

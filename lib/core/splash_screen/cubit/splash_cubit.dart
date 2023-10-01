@@ -4,7 +4,6 @@ import 'package:meta/meta.dart';
 
 import '../../../repository/repository.dart';
 
-
 part 'splash_state.dart';
 
 class SplashCubit extends Cubit<SplashState> {
@@ -19,13 +18,9 @@ class SplashCubit extends Cubit<SplashState> {
   }
 
   void navigationPage() {
-    repository.isLoggedIn().then((value) {
-      print("value"+value.toString());
-      if (value) {
+      if(!isClosed){
         emit(LoadHomeScreen());
-      } else {
-        emit(loadLoginScreen());
       }
-    });
+
   }
 }

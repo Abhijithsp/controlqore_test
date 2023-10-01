@@ -28,7 +28,7 @@ TextFormField customTextfield(
     inputFormatters: number ? [FilteringTextInputFormatter.digitsOnly] : null,
     maxLength: number ? 10 : null,
     onTap: isRead ? onTap : null,
-    style:  normalText,
+    style:  normalTextAuth,
     decoration: InputDecoration(
       hintText: txt,
       hintStyle: normalDataText,

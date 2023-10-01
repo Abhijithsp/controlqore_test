@@ -22,7 +22,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
 
   List<Widget> _NavScreens() {
     return [
-      const DashboardScreen(),
+       DashboardScreen(),
       const SearchScreen(),
        MaintanceScreen(),
       const Message(),
