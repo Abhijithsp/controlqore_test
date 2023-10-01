@@ -5,12 +5,18 @@ import 'package:google_fonts/google_fonts.dart';
 
 TextStyle smallTextBlack = GoogleFonts.ptSans(
     fontSize: 15,
-    fontWeight: FontWeight.normal,
+    fontWeight: FontWeight.w600,
     color: TextColor
 );
 
 TextStyle smallTextGrey = GoogleFonts.ptSans(
     fontSize: 13,
+    fontWeight: FontWeight.w500,
+    color: Colors.blueGrey
+);
+
+TextStyle MediumTextGrey = GoogleFonts.ptSans(
+    fontSize: 16,
     fontWeight: FontWeight.w500,
     color: Colors.blueGrey
 );

@@ -41,7 +41,7 @@ class SuccessScreen extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-                style: smallText,
+                style: MediumTextGrey,
               ),
             ),
             SizedBox(

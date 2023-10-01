@@ -81,30 +81,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
           Padding(
             padding: const EdgeInsets.only(top: 100).r,
             child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     color: colorWhite,
                     border: Border.all(color: colorWhite),
-                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                    borderRadius: const BorderRadius.all(Radius.circular(15))),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0),
                       child: SizedBox(
                         height: 55.h,
-                        child: const Card(
+                        child:  Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
                           elevation: 4,
-                          color: colorWhite,
-                          child: TextField(
+                          child:  const TextField(
                             decoration: InputDecoration(
                                 filled: true,
+                                fillColor: colorWhite,
                                 hintText: 'Search',
-                                prefixIcon:
-                                    Icon(Icons.search, color: colorWhite),
+                                hintStyle: TextStyle(color: Colors.blueGrey),
+                                prefixIcon: Icon(Icons.search, color: Colors.blueGrey),
                                 border: InputBorder.none),
                           ),
                         ),
@@ -194,7 +197,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                           child: Container(
                                             width: 25.0,
                                             height: 5.0,
-                                            margin: EdgeInsets.symmetric(
+                                            margin: const EdgeInsets.symmetric(
                                                 vertical: 5.0, horizontal: 4.0),
                                             decoration: BoxDecoration(
                                                 shape: BoxShape.rectangle,
@@ -218,7 +221,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                       child: Text(
                         "Select Service For Repair",
                         style: mediumTextBlack,
@@ -229,14 +232,19 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       child: SizedBox(
                         height: 250.h,
                         child: GridView.count(
+                          physics: const NeverScrollableScrollPhysics(),
                           crossAxisCount: 3,
                           children: List.generate(listData.length, (index) {
-                            return SizedBox(
-                              height: 40.h,
-                              width: 100.w,
-                              child: Card(
-                                color: colorWhite,
-                                elevation: 0.5,
+                            return Card(
+                              elevation: 5,
+                              child: Container(
+                                height: 40.h,
+                                width: 120.w,
+                                decoration: BoxDecoration(
+                                  color: colorWhite,
+
+                                    borderRadius: BorderRadius.all(Radius.circular(10))
+                                ),
                                 child: Column(
                                   children: [
                                     SizedBox(
